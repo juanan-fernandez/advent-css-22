@@ -1,0 +1,10 @@
+.card {
+	position: relative;
+	border-radius: 40.476px;
+	padding: 2rem;
+	background: #fff;
+	min-height: 50vh;
+	min-width: 30vw;
+	box-shadow: 0px 0px 128.17398071289062px 0px #f5c7bd,
+		0px 12.142797470092773px 32.380794525146484px 0px rgba(0, 0, 0, 0.25);
+}

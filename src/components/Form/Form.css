@@ -1,0 +1,51 @@
+.card__form {
+	margin-top: 10rem;
+	padding: 1.4rem;
+}
+
+.card__form label {
+	font-size: 0.8rem;
+	text-align: left;
+}
+.card__form input,
+.card__form select {
+	font-size: 1.2rem;
+	padding: 0.7rem 1rem;
+	border: 2px solid #e0e0e0;
+	border-radius: 6px;
+}
+
+.card__form select {
+	width: 50%;
+	margin-right: 0.5rem;
+}
+
+.card__form input:focus,
+.card__form select:focus {
+	outline: none;
+}
+
+.card__form_row {
+	display: flex;
+	justify-content: flex-start;
+	gap: 0.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.card__form_fieldset {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+}
+
+.card__form_row_double {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+}
+
+.card__form_fieldset__inputs {
+	display: flex;
+	justify-content: space-between;
+	gap: 0.5rem;
+}
