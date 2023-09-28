@@ -36,7 +36,7 @@ button {
 	font-family: inherit;
 	background-color: var(--update-button-color);
 	cursor: pointer;
-	transition: backgroud-color 0.25s;
+	transition: backgroud-color 1s;
 }
 button:hover {
 	background-color: var(--uppate-button-hover);

@@ -1,6 +1,6 @@
 .card__form {
-	margin-top: 10rem;
-	padding: 1.4rem;
+	margin-top: 8rem;
+	padding: 1.4rem 0.5rem 0rem 0.5rem;
 }
 
 .card__form label {
@@ -15,9 +15,12 @@
 	border-radius: 6px;
 }
 
-.card__form select {
-	width: 50%;
-	margin-right: 0.5rem;
+.styled-select {
+	overflow: hidden;
+	overflow: -moz-hidden-unscrollable;
+	background: url(images/arrow.png) no-repeat right white;
+	display: inline-block;
+	position: relative;
 }
 
 .card__form input:focus,
@@ -28,7 +31,7 @@
 .card__form_row {
 	display: flex;
 	justify-content: flex-start;
-	gap: 0.5rem;
+	gap: 1rem;
 	margin-bottom: 1.5rem;
 }
 
@@ -42,10 +45,40 @@
 .card__form_row_double {
 	display: grid;
 	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 0fr 1fr;
+}
+.card__form_row_double label {
+	display: block;
+	margin-bottom: 0.2rem;
 }
 
 .card__form_fieldset__inputs {
+	text-align: left;
+	position: relative;
+}
+
+.card__form_fieldset__inputs select {
+	display: inline;
+	width: 45%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background: transparent;
+	background-image: url('images/arrow.svg');
+	background-repeat: no-repeat;
+	background-position-x: 95%;
+	background-position-y: 15px;
+	margin-right: 0.7rem;
+}
+
+.card__form_button {
+	margin-top: 1rem;
 	display: flex;
-	justify-content: space-between;
-	gap: 0.5rem;
+	justify-content: center;
+	padding: 0.8rem 0rem;
+}
+
+.card__form_button button {
+	color: #fefefe;
+	font-weight: 700;
+	width: 100%;
 }
