@@ -9,37 +9,55 @@ function App() {
 	const [name, setName] = useState('');
 	const [expirationMonth, setExpirationMonth] = useState('');
 	const [expirationYear, setExpirationYear] = useState('');
+	const [cvv, setCvv] = useState('');
+	const [showBack, setShowBack] = useState(false);
 
 	const handleNumberChange = (value: string) => {
-		console.log(value);
-		setCardNumber(value);
+		if (isNaN(Number(value))) return;
+		if (cardNumber.length >= 19) return;
+
+		const result = value.match(/.{1,4}/g) || [];
+		console.log(result);
+
+		if (result.length > 0) {
+			setCardNumber(result.join(' '));
+		} else {
+			setCardNumber('');
+		}
 	};
 
 	const handleNameChange = (value: string) => {
-		console.log(value);
 		setName(value);
 	};
 
 	const handleYearChange = (value: string) => {
-		console.log(value);
 		setExpirationYear(value);
 	};
 
 	const handleMonthChange = (value: string) => {
-		console.log(value);
 		setExpirationMonth(value);
 	};
+
+	const handleCvvChange = (value: string) => {
+		if (isNaN(Number(value))) return;
+		setCvv(value);
+	};
+
 	const handleInputChange = (
 		ev: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>
 	) => {
-		console.log(ev.target.value);
-		const actions = {
-			card_number: handleNumberChange(ev.target.value),
+		type ActionsT = {
+			[key: string]: (value: string) => void;
+		};
+		const actions: ActionsT = {
+			card_number: handleNumberChange,
 			card_name: handleNameChange,
 			expiration_month: handleMonthChange,
 			expiration_year: handleYearChange,
+			cvv: handleCvvChange,
 		};
-		actions['card_number']();
+
+		actions[ev.target.name](ev.target.value);
 	};
 
 	return (
@@ -50,6 +68,7 @@ function App() {
 					name={name}
 					expirationMonth={expirationMonth}
 					expirationYear={expirationYear}
+					cvv={cvv}
 				/>
 				<Form handleInputChange={handleInputChange} />
 			</Card>

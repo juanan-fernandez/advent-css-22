@@ -59,7 +59,13 @@ export function Form({ handleInputChange }: FormProps) {
 				</div>
 
 				<div className='card__form_fieldset'>
-					<input type='text' name='cvv' id='cvv' onChange={handleInputChange} />
+					<input
+						type='text'
+						name='cvv'
+						id='cvv'
+						onChange={handleInputChange}
+						maxLength={3}
+					/>
 				</div>
 			</div>
 			<div className='card__form_button'>

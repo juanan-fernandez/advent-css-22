@@ -1,14 +1,16 @@
 .creditcard {
 	position: absolute;
-	border: 1px solid red;
+	height: 350px;
+	width: 100%;
 	top: -170px;
 	left: 0px;
 	display: flex;
-	justify-content: center;
-	margin-bottom: 1rem;
+	flex-direction: column;
+	align-items: center;
 }
 
 .creditcard img {
+	display: block;
 	width: 80%;
 	object-fit: cover;
 	box-sizing: border-box;
@@ -51,4 +53,7 @@
 	font-size: 20px;
 	top: 240px;
 	left: 420px;
+}
+
+.creditcard__data.cvv {
 }
