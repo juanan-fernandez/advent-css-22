@@ -1,12 +1,20 @@
+import { CardFormT } from '../../reducers/formReducer';
+import { formatNumber2Digits } from './utils';
 import './Form.css';
 
 type FormProps = {
 	handleInputChange: (
 		ev: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>
 	) => void;
+	handleInputFocus: (
+		ev: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>
+	) => void;
+	creditCardData: CardFormT;
 };
 
-export function Form({ handleInputChange }: FormProps) {
+export function Form({ handleInputChange, handleInputFocus, creditCardData }: FormProps) {
+	const { card_number, card_name, expiration_month, expiration_year, cvv } =
+		creditCardData;
 	return (
 		<form className='card__form'>
 			<div className='card__form_row'>
@@ -15,11 +23,12 @@ export function Form({ handleInputChange }: FormProps) {
 					<input
 						type='text'
 						placeholder='0000 0000 0000 0000'
-						data-slot='0'
-						data-accept='\d'
 						name='card_number'
 						id='card_number'
+						value={card_number}
 						onChange={handleInputChange}
+						onFocus={handleInputFocus}
+						maxLength={19}
 					/>
 				</div>
 				<div className='card__form_fieldset'>
@@ -28,7 +37,10 @@ export function Form({ handleInputChange }: FormProps) {
 						type='text'
 						name='card_name'
 						id='card_name'
+						value={card_name}
 						onChange={handleInputChange}
+						onFocus={handleInputFocus}
+						maxLength={20}
 					/>
 				</div>
 			</div>
@@ -36,22 +48,30 @@ export function Form({ handleInputChange }: FormProps) {
 				<label>Expiration Date</label>
 				<label htmlFor='cvv'>Cvv</label>
 				<div className='card__form_fieldset__inputs'>
-					<select name='expiration_year' onChange={handleInputChange}>
+					<select
+						value={expiration_year}
+						name='expiration_year'
+						onChange={handleInputChange}
+						onFocus={handleInputFocus}
+					>
 						{Array.from({ length: 15 }, (_v: unknown, i: number) => {
 							return (
-								<option key={i} value={2023 + 1}>
+								<option key={i} value={2023 + i}>
 									{Number(2023 + i)}
 								</option>
 							);
 						})}
 					</select>
-					<select name='expiration_month'>
+					<select
+						value={expiration_month}
+						name='expiration_month'
+						onChange={handleInputChange}
+						onFocus={handleInputFocus}
+					>
 						{Array.from({ length: 12 }, (_v: unknown, i: number) => {
 							return (
-								<option key={i} value={Number(i + 1)}>
-									{(i + 1).toString().length === 1
-										? `0${Number(1 + i)}`
-										: Number(1 + i)}
+								<option key={i} value={formatNumber2Digits(i + 1)}>
+									{formatNumber2Digits(i + 1)}
 								</option>
 							);
 						})}
@@ -63,8 +83,10 @@ export function Form({ handleInputChange }: FormProps) {
 						type='text'
 						name='cvv'
 						id='cvv'
+						value={cvv}
 						onChange={handleInputChange}
 						maxLength={3}
+						onFocus={handleInputFocus}
 					/>
 				</div>
 			</div>

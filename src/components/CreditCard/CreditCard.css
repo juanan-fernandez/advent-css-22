@@ -16,7 +16,12 @@
 	box-sizing: border-box;
 }
 
-.creditcard__data {
+/* .creditcard .visa {
+	background-image: url('/images/cc__visa--front.png');
+} */
+
+.creditcard__data,
+.creditcard__cvv {
 	position: absolute;
 	z-index: 10;
 	font-weight: 700;
@@ -55,5 +60,13 @@
 	left: 420px;
 }
 
-.creditcard__data.cvv {
+.creditcard__data.no__visible,
+.creditcard__cvv.no__visible {
+	display: none;
+}
+
+.creditcard__cvv.cvv {
+	font-size: 2rem;
+	top: 240px;
+	left: 500px;
 }
