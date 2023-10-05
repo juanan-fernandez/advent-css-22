@@ -3,18 +3,13 @@ import { formatNumber2Digits } from './utils';
 import './Form.css';
 
 type FormProps = {
-	handleInputChange: (
-		ev: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>
-	) => void;
-	handleInputFocus: (
-		ev: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>
-	) => void;
+	handleInputChange: (ev: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => void;
+	handleInputFocus: (ev: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => void;
 	creditCardData: CardFormT;
 };
 
 export function Form({ handleInputChange, handleInputFocus, creditCardData }: FormProps) {
-	const { card_number, card_name, expiration_month, expiration_year, cvv } =
-		creditCardData;
+	const { card_number, card_name, expiration_month, expiration_year, cvv } = creditCardData;
 	return (
 		<form className='card__form'>
 			<div className='card__form_row'>
@@ -48,30 +43,20 @@ export function Form({ handleInputChange, handleInputFocus, creditCardData }: Fo
 				<label>Expiration Date</label>
 				<label htmlFor='cvv'>Cvv</label>
 				<div className='card__form_fieldset__inputs'>
-					<select
-						value={expiration_year}
-						name='expiration_year'
-						onChange={handleInputChange}
-						onFocus={handleInputFocus}
-					>
+					<select value={expiration_year} name='expiration_year' onChange={handleInputChange} onFocus={handleInputFocus}>
 						{Array.from({ length: 15 }, (_v: unknown, i: number) => {
 							return (
-								<option key={i} value={2023 + i}>
-									{Number(2023 + i)}
+								<option key={i} value={i > 0 ? 2023 + i : ''} selected>
+									{i > 0 ? Number(2023 + i) : ''}
 								</option>
 							);
 						})}
 					</select>
-					<select
-						value={expiration_month}
-						name='expiration_month'
-						onChange={handleInputChange}
-						onFocus={handleInputFocus}
-					>
+					<select value={expiration_month} name='expiration_month' onChange={handleInputChange} onFocus={handleInputFocus}>
 						{Array.from({ length: 12 }, (_v: unknown, i: number) => {
 							return (
-								<option key={i} value={formatNumber2Digits(i + 1)}>
-									{formatNumber2Digits(i + 1)}
+								<option key={i} value={i > 0 ? formatNumber2Digits(i) : ''} selected>
+									{i > 0 ? formatNumber2Digits(i) : ''}
 								</option>
 							);
 						})}

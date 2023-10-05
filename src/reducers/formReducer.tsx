@@ -11,7 +11,7 @@ export const initialState: CardFormT = {
 	card_name: '',
 	expiration_month: '',
 	expiration_year: '',
-	cvv: '',
+	cvv: ''
 };
 
 type ActionsT = {
@@ -21,14 +21,13 @@ const actions: ActionsT = {
 	card_number: function (cardState: CardFormT, value: string) {
 		const numericValue = value.split(' ').join('');
 		if (isNaN(Number(numericValue))) return cardState;
-		if (cardState.card_number.length >= 19) return cardState;
 
 		const result = numericValue.match(/.{1,4}/g) || [];
 
 		if (result.length > 0) {
 			return {
 				...cardState,
-				card_number: result.join(' '),
+				card_number: result.join(' ')
 			};
 		} else {
 			return cardState;
@@ -50,7 +49,7 @@ const actions: ActionsT = {
 	cvv: function (cardState: CardFormT, value: string) {
 		if (isNaN(Number(value))) return cardState;
 		return { ...cardState, cvv: value };
-	},
+	}
 };
 
 type Actions = { type: string; payload: string };
