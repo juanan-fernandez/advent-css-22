@@ -8,6 +8,7 @@ type CreditCardProps = {
 	cvv: string;
 	showBack: boolean;
 };
+
 export function CreditCard({ cardNumber, name, expirationMonth, expirationYear, cvv, showBack }: CreditCardProps) {
 	//inferir la imagen de la credit card del card number
 	const getCardImage = () => {
