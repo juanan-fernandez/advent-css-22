@@ -23,7 +23,6 @@ const actions: ActionsT = {
 		if (isNaN(Number(numericValue))) return cardState;
 
 		const result = numericValue.match(/.{1,4}/g) || [];
-		console.log('llego a result: ' + result.length);
 		if (result.length >= 0) {
 			return { ...cardState, card_number: result.join(' ') };
 		} else {
