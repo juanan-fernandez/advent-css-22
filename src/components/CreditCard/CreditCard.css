@@ -9,16 +9,54 @@
 	align-items: center;
 }
 
-.creditcard img {
-	display: block;
-	width: 80%;
-	object-fit: cover;
-	box-sizing: border-box;
+.creditcard__img {
+	display: inline-block;
+	position: absolute;
+	top: 15px;
+	border: 0;
+	outline: none;
+	width: 75%;
+	height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	transition: all ease 500ms;
 }
 
-/* .creditcard .visa {
-	background-image: url('/images/cc__visa--front.png');
-} */
+.visa {
+	background-image: url('images/cc__visa--front.png');
+}
+
+.visa__back {
+	transform: rotateY(180deg);
+	background-image: url('images/cc__visa--back.png');
+}
+
+.discover {
+	background-image: url('images/cc__discover--front.png');
+}
+
+.discover__back {
+	transform: rotateY(180deg);
+	background-image: url('images/cc__discover--back.png');
+}
+
+.american {
+	background-image: url('images/cc__american-front.png');
+}
+
+.american__back {
+	transform: rotateY(180deg);
+	background-image: url('images/cc__american-front.png');
+}
+
+.mastercard {
+	background-image: url('images/cc__mastercard--front.png');
+}
+
+.mastercard__back {
+	transform: rotateY(180deg);
+	background-image: url('images/cc__mastercard--back.png');
+}
 
 .creditcard__data,
 .creditcard__cvv {
@@ -42,8 +80,8 @@
 }
 
 .creditcard__data.number {
-	top: 170px;
-	left: 189px;
+	top: 172px;
+	left: 199px;
 	padding: 0.7rem 0;
 	font-size: 2rem;
 }
@@ -51,7 +89,7 @@
 .creditcard__data.name {
 	font-size: 20px;
 	top: 275px;
-	left: 189px;
+	left: 199px;
 }
 
 .creditcard__data.date {
@@ -67,6 +105,6 @@
 
 .creditcard__cvv.cvv {
 	font-size: 2rem;
-	top: 240px;
+	top: 242px;
 	left: 500px;
 }

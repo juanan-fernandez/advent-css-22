@@ -23,20 +23,16 @@ const actions: ActionsT = {
 		if (isNaN(Number(numericValue))) return cardState;
 
 		const result = numericValue.match(/.{1,4}/g) || [];
-
-		if (result.length > 0) {
-			return {
-				...cardState,
-				card_number: result.join(' ')
-			};
+		console.log('llego a result: ' + result.length);
+		if (result.length >= 0) {
+			return { ...cardState, card_number: result.join(' ') };
 		} else {
 			return cardState;
 		}
 	},
 
 	card_name: function (cardState: CardFormT, value: string) {
-		if (cardState.card_name.length >= 20) return cardState;
-		return { ...cardState, card_name: value };
+		return { ...cardState, card_name: value.toUpperCase() };
 	},
 
 	expiration_month: function (cardState: CardFormT, value: string) {

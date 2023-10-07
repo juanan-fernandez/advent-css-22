@@ -46,7 +46,7 @@ export function Form({ handleInputChange, handleInputFocus, creditCardData }: Fo
 					<select value={expiration_year} name='expiration_year' onChange={handleInputChange} onFocus={handleInputFocus}>
 						{Array.from({ length: 15 }, (_v: unknown, i: number) => {
 							return (
-								<option key={i} value={i > 0 ? 2023 + i : ''} selected>
+								<option key={i} value={i > 0 ? 2023 + i : ''}>
 									{i > 0 ? Number(2023 + i) : ''}
 								</option>
 							);
@@ -55,7 +55,7 @@ export function Form({ handleInputChange, handleInputFocus, creditCardData }: Fo
 					<select value={expiration_month} name='expiration_month' onChange={handleInputChange} onFocus={handleInputFocus}>
 						{Array.from({ length: 12 }, (_v: unknown, i: number) => {
 							return (
-								<option key={i} value={i > 0 ? formatNumber2Digits(i) : ''} selected>
+								<option key={i} value={i > 0 ? formatNumber2Digits(i) : ''}>
 									{i > 0 ? formatNumber2Digits(i) : ''}
 								</option>
 							);
